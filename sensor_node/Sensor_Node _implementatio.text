@@ -65,4 +65,5 @@ Performance Considerations
 - Sampling frequency is determined by LoRa transmission time
 
 Academic Context Application
-This code demonstrates the practical implementation of cyber-physical systems concepts, long-range wireless communications, and real-time data acquisition for energy monitoring applications in industrial and residential environments.
+This code demonstrates the practical implementation of cyber-physical systems concepts, long-range wireless communications, 
+and real-time data acquisition for energy monitoring applications in industrial and residential environments.
