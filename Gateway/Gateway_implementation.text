@@ -1,0 +1,108 @@
+Gateway Implementation
+
+Primary Function
+
+This code implements the firmware for the gateway in the IoT electrical monitoring system. The Heltec WiFi LoRa V3 board functions 
+as a communication bridge that receives data from sensor nodes via LoRa, processes the information, and retransmits it through WiFi
+to the MQTT broker for centralized distribution.
+
+System Architecture
+
+The gateway operates as the central communication component in the distributed architecture, responsible for:
+
+- Receiving LoRa transmissions from sensor nodes
+- Converting communication protocols (LoRa to WiFi/MQTT)
+- Processing and enriching data with electrical calculations
+- Managing network connections and automatic reconnections
+- Distributing data in standardized JSON format
+
+Hardware Configuration - Heltec WiFi LoRa V3
+
+Required Network Connections
+
+WiFi → Local network with internet access
+MQTT → Broker on local or remote network
+Power → USB or 5V power supply
+
+LoRa Configuration Specific to Heltec V3
+
+- Operating Frequency: 915 MHz (ISM band for Latin America)
+- Reception Mode: Continuous (always listening)
+- Spreading Factor: SF7 (consistent with sensor nodes)
+- Coding Rate: 4/5
+- CRC Enabled: Yes (data integrity verification)
+
+WiFi and MQTT Configuration
+
+- WiFi Protocol: 802.11 b/g/n
+- Security: WPA/WPA2
+- MQTT Protocol: 3.1.1
+- MQTT Port: 1883 (unencrypted communication)
+- Automatic reconnection in case of failures
+
+Technical Considerations for Implementation
+
+Hardware Initialization
+
+The Heltec V3 board requires specific initialization of the LoRa stack and network interface configuration. 
+The initialization sequence must ensure that both WiFi and LoRa are operational before beginning data reception.
+
+Network Connection Management
+
+The gateway implements automatic reconnection mechanisms for both interfaces (WiFi and MQTT).
+In case of network interruptions, the system retries connections without requiring manual intervention.
+
+Data Processing
+
+Data received via LoRa in plain text format is parsed, enriched with power calculations (apparent and reactive), and converted to JSON format for standardized distribution.
+
+Communication Protocol
+Data received via LoRa:
+"V:230.5,I:1.25,P:288.1,F:60.0,PF:0.98"
+
+Data sent via MQTT:
+{
+  "V": 230.5,
+  "I": 1.25,
+  "P": 288.1,
+  "F": 60.0,
+  "PF": 0.98,
+  "S": 288.1,
+  "Q": 0.0,
+  "rssi": -45,
+  "snr": 9.5
+}
+
+Error Handling
+
+The code includes robust error handling for:
+
+- WiFi connection loss (automatic reconnection)
+- MQTT broker downtime (reconnection with retries)
+- Corrupted LoRa packets (format verification)
+- Data parsing failures (default values)
+
+Electrical Calculations Implemented
+
+- Apparent Power (S): V × I
+- Reactive Power (Q): √(S² - P²)
+- Signal Quality Metrics: RSSI and SNR
+
+Library and Dependency Requirements
+
+- LoRaWan_APP.h: LoRa stack specific to Heltec
+- WiFi.h: WiFi client for ESP32
+- PubSubClient.h: MQTT client for Arduino
+- Arduino.h: Base framework for programming
+
+Performance Considerations
+
+- LoRa reception is continuous for maximum receptivity
+- MQTT processing is non-blocking (mqtt.loop())
+- Electrical calculations execute only upon data reception
+- Memory is managed efficiently with reusable buffers
+
+Academic Context Application
+
+This code demonstrates the practical implementation of IoT gateways, communication protocol conversion, real-time data processing, 
+and robust network connection management in distributed cyber-physical systems.
