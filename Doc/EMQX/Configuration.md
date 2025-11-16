@@ -11,3 +11,6 @@ The EMQX portable installation requires the following directory organization:
 
 *Figure 1: EMQX directory layout after successful extraction*
 
+Navigate to the Bin subdirectory within the main folder and execute Command Prompt from this location.
+
+![EMQX Folder Structure](EMQX/Images/Bin.png)
