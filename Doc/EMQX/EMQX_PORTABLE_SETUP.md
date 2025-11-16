@@ -16,17 +16,17 @@
 
 EMQX/
 
-├── bin/ # Executables and scripts
+├── bin/ Executables and scripts
 
-├── etc/ # Configuration files
+├── etc/ Configuration files
 
-├── log/ # System logs
+├── log/ System logs
 
-├── data/ # Persistent data
+├── data/ Persistent data
 
-├── lib/ # System libraries
+├── lib/ System libraries
 
-└── releases/ # Release files
+└── releases/ Release files
 
 
 ## Service Configuration
