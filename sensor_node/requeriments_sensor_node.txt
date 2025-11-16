@@ -1,0 +1,39 @@
+# SENSOR NODE - HARDWARE REQUIREMENTS
+
+- Heltec WiFi LoRa V3 board
+- PZEM-004T v3.0 sensor module
+- Jumper wires (female-female)
+- 5V power supply
+- USB cable for programming
+
+# SENSOR NODE - SOFTWARE DEPENDENCIES
+
+- Arduino IDE 2.0.0 or higher
+- ESP32 Board Support Package
+- LoRa library by Sandeep Mistry
+- PZEM004Tv30 library
+
+# HARDWARE CONNECTIONS
+
+PZEM-004T → Heltec V3
+VCC       → 5V
+GND       → GND
+TX        → GPIO 47
+RX        → GPIO 48
+
+# LIBRARY INSTALLATION
+
+1. Install ESP32 boards via Boards Manager:
+   URL: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+
+2. Install libraries via Library Manager:
+   - "LoRa" by Sandeep Mistry
+   - "PZEM-004T v3.0" by peace4ever
+
+# BOARD CONFIGURATION
+
+Board: Heltec WiFi LoRa 32 (V3)
+CPU Frequency: 240MHz
+Flash Frequency: 80MHz
+Upload Speed: 921600
+Port: (appropriate COM port)
