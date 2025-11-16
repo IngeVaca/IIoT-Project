@@ -1,0 +1,210 @@
+## HARDWARE REQUIREMENTS
+
+### Core Components
+
+- 2x Heltec WiFi LoRa V3 boards
+- 1x PZEM-004T v3.0 electrical sensor module
+- USB cables for programming and power
+- 5V power supply for continuous operation
+- Breadboard for prototyping (optional)
+
+### Network Infrastructure
+
+- Stable WiFi network with internet access
+- Local network router
+- Computer for MQTT broker installation
+
+## SOFTWARE REQUIREMENTS
+
+### Development Environment
+
+- Arduino IDE 2.0.0 or higher
+- ESP32 Board Support Package
+- Serial terminal application (Arduino Serial Monitor or similar)
+
+### Required Libraries
+
+- LoRa library by Sandeep Mistry
+- PZEM004Tv30 library by peace4ever
+- WiFi library for ESP32 (included in ESP32 package)
+- PubSubClient library by Nick O'Leary
+
+### MQTT Broker
+
+- EMQX Broker 5.0 or higher
+- Alternative: Mosquitto, HiveMQ, or other MQTT brokers
+- WebSocket support enabled
+
+### Web Browser
+
+- Modern web browser with JavaScript support
+- WebSocket protocol support
+- HTML5 Canvas support
+- Chrome 90+, Firefox 88+, Safari 14+, or Edge 90+
+
+## NETWORK CONFIGURATION
+
+### WiFi Requirements
+
+- 2.4GHz WiFi network (ESP32 compatible)
+- WPA/WPA2 security
+- Stable signal strength
+- Network accessibility for both Heltec devices
+
+### MQTT Broker Configuration
+
+- Default port: 1883 (MQTT)
+- WebSocket port: 8083 (for dashboard)
+- Accessible IP address on local network
+- No authentication required (or credentials configured)
+
+### LoRa Communication
+
+- Frequency: 915MHz (Americas) or 868MHz (Europe)
+- Spreading Factor: SF7
+- Bandwidth: 125kHz
+- Coding Rate: 4/5
+- Transmission Power: 14dBm
+
+## DEVELOPMENT REQUIREMENTS
+
+### Arduino IDE Setup
+
+1. Install Arduino IDE
+2. Add ESP32 board support URL:
+   https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+3. Install Heltec WiFi LoRa 32 board package
+4. Install required libraries via Library Manager
+
+### Board Configuration
+
+- Board: Heltec WiFi LoRa 32 (V3)
+- CPU Frequency: 240MHz
+- Flash Frequency: 80MHz
+- Upload Speed: 921600
+- Partition Scheme: Default
+
+## PHYSICAL CONNECTIONS
+
+### Sensor Node Connections
+
+PZEM-004T → Heltec V3
+VCC       → 5V
+GND       → GND
+TX        → GPIO 47
+RX        → GPIO 48
+
+### Gateway Connections
+
+- WiFi antenna connected
+- LoRa antenna connected
+- USB power connection
+
+## OPERATIONAL REQUIREMENTS
+
+### Power Requirements
+
+- USB power: 5V DC
+- Continuous power supply for long-term operation
+- Stable voltage for accurate sensor readings
+
+### Environmental Conditions
+
+- Operating temperature: 0°C to 40°C
+- Indoor installation recommended
+- Dry environment (avoid moisture)
+
+### Network Stability
+
+- Consistent WiFi connectivity
+- Reliable MQTT broker operation
+- Stable LoRa communication range (up to 2km line-of-sight)
+
+## DATA MANAGEMENT
+
+### Storage Requirements
+
+- Sufficient memory for data capture (configurable)
+- CSV export capability for data analysis
+- Real-time data processing capabilities
+
+### Performance Expectations
+
+- Real-time data update frequency: 1-5 seconds
+- Data accuracy: PZEM-004T specifications
+- System reliability: Continuous operation
+
+## SECURITY CONSIDERATIONS
+
+### Network Security
+
+- Secure WiFi network
+- Local network isolation recommended
+- MQTT authentication (optional)
+
+### Physical Security
+
+- Secure device placement
+- Protected electrical connections
+- Proper insulation and safety measures
+
+## TESTING AND VALIDATION
+
+### Verification Tools
+
+- Multimeter for voltage/current validation
+- Serial monitor for debugging
+- MQTT client for message monitoring
+
+### Calibration Requirements
+
+- PZEM-004T factory calibration
+- Voltage and current reference measurements
+- Power factor validation
+
+## MAINTENANCE REQUIREMENTS
+
+### Regular Checks
+
+- Firmware updates
+- Network connectivity verification
+- Sensor calibration verification
+- Data integrity checks
+
+### Troubleshooting
+
+- Serial debug output monitoring
+- MQTT connection status verification
+- LoRa signal strength monitoring
+- Power supply stability checks
+
+## COMPLIANCE AND STANDARDS
+
+### Regional Compliance
+
+- LoRa frequency regulations compliance
+- Electrical safety standards
+- RF transmission regulations
+
+### Academic Standards
+
+- Research ethics compliance
+- Data accuracy and validation
+- Documentation standards
+
+## SUPPORT AND DOCUMENTATION
+
+### Required Documentation
+
+- Circuit diagrams and schematics
+- Source code with comments
+- Installation and setup guide
+- Troubleshooting guide
+- User manual for dashboard operation
+
+### Technical Support
+
+- Arduino community resources
+- ESP32 official documentation
+- LoRaWAN protocol documentation
+- MQTT protocol specifications
