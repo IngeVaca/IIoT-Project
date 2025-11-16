@@ -1,5 +1,3 @@
-# EMQX Installation Guide
-
 ## Initial Setup
 
 To execute and configure EMQX, access the decompressed folder obtained from the official EMQX website download.
@@ -11,6 +9,15 @@ The EMQX portable installation requires the following directory organization:
 
 *Figure 1: EMQX directory layout after successful extraction*
 
+### Service Initialization
 Navigate to the Bin subdirectory within the main folder and execute Command Prompt from this location.
 
-![EMQX Folder Structure](Images/Bin.png)
+![EMQX Bin Directory](Images/Bin.png)
+
+*Figure 2: Accessing the Bin directory for service management*
+
+A Command Prompt window will open. Enter the command `emqx start` to initialize the EMQX broker service.
+
+![EMQX Service Startup](Images/start.png)
+
+*Figure 3: Initializing EMQX service via command line*
