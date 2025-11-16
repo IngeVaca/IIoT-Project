@@ -70,7 +70,7 @@ Click "Change Password"
 
 Set a new secure password
 
-6. Security Enhancement (Recommended)
+Security Enhancement (Recommended)
 In the dashboard, go to "Administration" → "Users"
 
 Select admin user
