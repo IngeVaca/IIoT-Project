@@ -1,0 +1,68 @@
+Primary Function
+
+This code implements the firmware for the sensor node in the IoT electrical monitoring system. The Heltec WiFi LoRa V3 board operates as a data 
+acquisition unit that measures electrical parameters using the PZEM-004T sensor and wirelessly transmits them using LoRa technology for long-range communication.
+
+System Architecture
+
+The sensor node functions as the field component in the distributed architecture, responsible for:
+- Capturing real-time electrical measurements
+- Formatting data into a structured protocol
+- Transmitting information via LoRa radio frequency
+- Maintaining autonomous operation with efficient power management
+
+Hardware Configuration - Heltec WiFi LoRa V3
+
+Physical Connections Required
+PZEM-004T → Heltec V3
+VCC       → 5V
+GND       → GND
+TX        → GPIO 47 (PZEM RX)
+RX        → GPIO 48 (PZEM TX)
+
+LoRa Configuration Specific to Heltec V3
+
+- Operating Frequency: 915 MHz (ISM band for Latin America)
+- Transmission Power: 14 dBm (maximum allowed by regulations)
+- Bandwidth: 125 kHz (optimal for range-speed balance)
+- Spreading Factor: SF7 (efficient for periodic transmissions)
+- Coding Rate: 4/5 (balance between robustness and overhead)
+
+Technical Considerations for Implementation
+
+Hardware Initialization
+
+The Heltec V3 board requires specific MCU module initialization through Mcu.begin() with correct board parameters and clock type. 
+The LoRa radio configuration must be established before any transmission operation.
+
+Serial Communication Management
+
+The PZEM-004T uses UART communication through ESP32's hardware serial port 2. GPIO pins 47 and 48 must be configured exclusively for this communication, 
+avoiding conflicts with other peripherals.
+
+Data Protocol
+
+Data is structured in a simple text format to minimize overhead:
+"V:230.5,I:1.25,P:288.1,F:60.0,PF:0.98"
+Where each parameter represents: Voltage (V), Current (I), Active Power (P), Frequency (F), and Power Factor (PF).
+
+Error Handling
+
+The code includes sensor reading validation through isnan() checks to detect PZEM-004T communication failures.
+In case of error, the system retries after a waiting period without blocking.
+
+Library and Dependency Requirements
+
+- LoRaWan_APP.h: Specific library for Heltec's LoRa stack
+- PZEM004Tv30.h: Controller for PZEM sensor version 3.0
+- Arduino.h: Base framework for microcontroller programming
+
+Performance Considerations
+
+- Transmission cycle is determined by the lora_idle state
+- LoRa interrupt processing is handled through Radio.IrqProcess()
+- Transmission power should be adjusted according to local regulations
+- Sampling frequency is determined by LoRa transmission time
+
+Academic Context Application
+This code demonstrates the practical implementation of cyber-physical systems concepts, long-range wireless communications, and real-time data acquisition for energy monitoring applications in industrial and residential environments.
