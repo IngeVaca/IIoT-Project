@@ -1,0 +1,59 @@
+# GATEWAY - HARDWARE REQUIREMENTS
+
+- Heltec WiFi LoRa V3 board
+- Stable WiFi network access
+- USB cable for programming and power
+- 5V power supply (optional for extended operation)
+
+# GATEWAY - SOFTWARE DEPENDENCIES
+
+- Arduino IDE 2.0.0 or higher
+- ESP32 Board Support Package
+- LoRa library by Sandeep Mistry
+- PubSubClient library for MQTT
+- WiFi library for ESP32
+
+# NETWORK CONFIGURATION
+
+WiFi SSID: [Your Network Name]
+WiFi Password: [Your Network Password]
+MQTT Broker IP: [Your Broker IP Address]
+MQTT Port: 1883
+
+# LIBRARY INSTALLATION
+
+1. Install ESP32 boards via Boards Manager:
+   URL: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+
+2. Install libraries via Library Manager:
+   - "LoRa" by Sandeep Mistry
+   - "PubSubClient" by Nick O'Leary
+
+# BOARD CONFIGURATION
+
+Board: Heltec WiFi LoRa 32 (V3)
+CPU Frequency: 240MHz
+Flash Frequency: 80MHz
+Upload Speed: 921600
+Port: (appropriate COM port)
+
+# MQTT BROKER REQUIREMENTS
+
+- EMQX Broker or similar MQTT broker
+- Broker running on port 1883
+- Network accessibility from gateway
+
+# COMMUNICATION PROTOCOLS
+
+LoRa Frequency: 915MHz
+LoRa Spreading Factor: SF7
+LoRA Coding Rate: 4/5
+WiFi Protocol: 802.11 b/g/n
+MQTT Protocol: 3.1.1
+
+# OPERATIONAL REQUIREMENTS
+
+- Continuous power supply
+- Stable WiFi connectivity
+- Accessible MQTT broker
+- Compatible sensor nodes transmitting on same LoRa frequency
